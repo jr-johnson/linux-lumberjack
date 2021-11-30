@@ -47,7 +47,7 @@ def main():
                 with open("/etc/rsyslog.d/commands.conf", "w") as commands:
                         commands.write("local6.*    /var/log/commands.log")
 
-                result = subprocess.run(["/etc/init.d/rsyslog", "restart"], capture_output=True, text=True)
+                result = subprocess.run(["service", "rsyslog restart"], capture_output=True, text=True)
 
                 # Make modifications to .zshrc
                 if os.path.isfile("/root/.zshrc"):
